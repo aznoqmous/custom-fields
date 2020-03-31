@@ -10,6 +10,7 @@ export default class CustomElement {
         el.parentElement.insertBefore(this.container, el)
         this.container.appendChild(el)
         this.container.className = this.className
+        this.container.classList.add('custom-element')
     }
 
     setStyles(styles, el=null){

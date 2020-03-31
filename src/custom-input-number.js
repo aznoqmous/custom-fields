@@ -18,7 +18,6 @@ export default class CustomInputNumber extends CustomElement {
     }
 
     build(){
-        console.log(this.el)
 
         this.setStyles({
             display: 'inline-block',
