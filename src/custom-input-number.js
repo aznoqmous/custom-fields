@@ -9,11 +9,16 @@ export default class CustomInputNumber extends CustomElement {
 
     bind(){
         let step = parseFloat( this.el.getAttribute('step') ) || 1
+        let min = this.el.getAttribute('min')
+        let max = this.el.getAttribute('max')
+
         this.up.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) + step
+            if(max !== undefined && this.el.value > max) this.el.value = max
         })
         this.down.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) - step
+            if(min !== undefined && this.el.value < min) this.el.value = min
         })
     }
 
