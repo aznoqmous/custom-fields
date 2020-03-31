@@ -8,18 +8,41 @@ export default class CustomInputNumber extends CustomElement {
     }
 
     bind(){
-        let step = parseFloat( this.el.getAttribute('step') ) || 1
+        let step = this.el.getAttribute('step')
         let min = this.el.getAttribute('min')
         let max = this.el.getAttribute('max')
+
+        if(min === '') min = undefined
+        if(max === '') max = undefined
+        if(step === '') step = undefined
+
+        if(step === undefined) step = 1
+        else step = parseFloat(step)
 
         this.up.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) + step
             if(max !== undefined && this.el.value > max) this.el.value = max
+            this.triggerEvent('input')
+            this.triggerEvent('change')
+            this.triggerEvent('keyup')
         })
         this.down.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) - step
             if(min !== undefined && this.el.value < min) this.el.value = min
+            this.triggerEvent('input')
+            this.triggerEvent('change')
+            this.triggerEvent('keydown')
         })
+    }
+
+    triggerEvent(name){
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent(name, true, true);
+            this.el.dispatchEvent(evt);
+        }
+        else
+            this.el.fireEvent(`on${name}`);
     }
 
     build(){
