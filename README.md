@@ -1,12 +1,20 @@
-# Custom Fields
+# CustomFields
 
-Custom fields provide wrappers for html form elements so you can then style them using classic CSS.
+`CustomFields` provide wrappers for html form elements so you can then style them using classic CSS.
+
+- provide event triggering on wrapped elements so you can style any element without breaking anything.
+
+- comes with a mutation observer so every dynamically generated field is automatically wrapped.
+
+- basic style you can easily overwrite
 
 ## Available elements :
 - `<input type="number">`
 - `<select>`
 
 ## How to use
+`npm install aznoqmous/custom-fields`
+
 ```js
 
 import CustomFields from 'custom-fields'
@@ -34,7 +42,7 @@ new CustomFields('select')
 ## Select
 ```html
 <!-- Before -->
-<select name="select" style="display: none;">
+<select name="select">
     <option value="0">0</option>
     <option value="1">1</option>
     <option value="2">2</option>
