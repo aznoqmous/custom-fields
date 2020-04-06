@@ -27,6 +27,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-style: normal;
             cursor: pointer;
 
             @include colors;
@@ -36,11 +37,11 @@
         }
 
         > .up:before {
-            content: '+';
+            content: $symbol_up;
         }
 
         > .down:before {
-            content: "-";
+            content: $symbol_down;
         }
 
     }

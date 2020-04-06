@@ -14,6 +14,9 @@ $border: $border_size solid $color;
 $border_radius: 2px;
 $box-shadow: 0 2px 2px rgba(black, 0.2);
 
+$symbol_up: '⯅';
+$symbol_down: '⯆';
+
 @mixin colors {
     background: $background;
     color: $color;

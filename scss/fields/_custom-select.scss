@@ -8,6 +8,13 @@
     > span.selected {
         display: inline-block;
         @include colors;
+    }
+
+    &:after {
+        content: $symbol_down;
+        position: absolute;
+        right: 0;
+        top: 0;
         padding: $padding;
     }
 
