@@ -21,76 +21,24 @@ export default class CustomInputNumber extends CustomElement {
         this.up.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) + step
             if( max !== null && this.el.value > max) this.el.value = max
-            this.triggerEvent('input')
-            this.triggerEvent('change')
-            this.triggerEvent('keyup')
+            this.triggerChange()
         })
         this.down.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) - step
             if( min !== null && this.el.value < min) this.el.value = min
-            this.triggerEvent('input')
-            this.triggerEvent('change')
-            this.triggerEvent('keydown')
+            this.triggerChange()
         })
-    }
-
-    triggerEvent(name){
-        if ("createEvent" in document) {
-            var evt = document.createEvent("HTMLEvents");
-            evt.initEvent(name, true, true);
-            this.el.dispatchEvent(evt);
-        }
-        else
-            this.el.fireEvent(`on${name}`);
     }
 
     build(){
 
-        this.setStyles({
-            position: 'relative',
-            overflow: 'hidden',
-            cursor: 'text'
-        })
-        this.setElStyles({
-            border: 'none',
-            outline: 'none',
-            margin: 0,
-            marginRight: '-100vw',
-            width: 'calc(100% + 100vw)'
-        })
-
         this.controls = document.createElement('div')
         this.controls.className = 'controls'
-        this.setStyles({
-            position: 'absolute',
-            right: 0,
-            top: 0,
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column'
-        }, this.controls)
 
         this.up = document.createElement('i')
         this.down = document.createElement('i')
         this.up.className = 'up'
         this.down.className = 'down'
-
-        this.setStyles({
-            height: '50%',
-            textAlign: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer'
-        }, this.up)
-        this.setStyles({
-            height: '50%',
-            textAlign: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer'
-        }, this.down)
 
         this.controls.appendChild(this.up)
         this.controls.appendChild(this.down)

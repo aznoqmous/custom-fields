@@ -3,7 +3,8 @@
 Custom fields provide wrappers for html form elements so you can then style them using classic CSS.
 
 ## Available elements :
-`<input type="number">`
+- `<input type="number">`
+- `<select>`
 
 ## How to use
 ```js
@@ -11,6 +12,7 @@ Custom fields provide wrappers for html form elements so you can then style them
 import CustomFields from 'custom-fields'
 
 new CustomFields('input[type="number"]')
+new CustomFields('select')
 
 ```
 
@@ -21,10 +23,43 @@ new CustomFields('input[type="number"]')
 
 <!-- After -->
 <div class="custom-element custom-input-number">
-    <input type="number" name="age" value="0" step="1">
+    <input type="number" name="number" value="0" step="1">
     <div class="controls">
         <i class="up"></i>
         <i class="down"></i>
     </div>
+</div>
+```
+
+## Select
+```html
+<!-- Before -->
+<select name="select" style="display: none;">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+
+<!-- After -->
+<div class="custom-select custom-element">
+
+    <!-- <select name="select" style="display: none;">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> -->
+
+    <span class="selected">1</span>
+    <ul class="options">
+        <li data-value="0" class="">0</li>
+        <li data-value="1" class="selected">1</li>
+        <li data-value="2">2</li>
+        <li data-value="3">3</li>
+        <li data-value="4">4</li>
+    </ul>
 </div>
 ```

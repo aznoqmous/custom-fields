@@ -1,9 +1,12 @@
 export default class CustomElement {
     constructor(el, className='custom-element'){
-
         this.className = className
 
+        this.wrap(el)
         // build
+    }
+
+    wrap(el){
         this.el = el
         let index = [...el.parentElement.children].indexOf(el)
         this.container = document.createElement('div')
@@ -20,6 +23,22 @@ export default class CustomElement {
 
     setElStyles(styles){
         this.setStyles(styles, this.el)
+    }
+
+    triggerEvent(name){
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent(name, true, true);
+            this.el.dispatchEvent(evt);
+        }
+        else
+            this.el.fireEvent(`on${name}`);
+    }
+
+    triggerChange(){
+        this.triggerEvent('input')
+        this.triggerEvent('change')
+        this.triggerEvent('keyup')
     }
 
 }
