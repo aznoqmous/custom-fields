@@ -2,9 +2,9 @@
 
 `CustomFields` provide wrappers for html form elements so you can then style them using classic CSS.
 
-- provide event triggering on wrapped elements so you can style any element without breaking anything.
+- provide event triggering on wrapped elements so you can style any element without breaking anything
 
-- comes with a mutation observer so every dynamically generated field is automatically wrapped.
+- comes with a mutation observer so every dynamically generated field is automatically wrapped
 
 - basic style you can easily overwrite
 
