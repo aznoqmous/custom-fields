@@ -12,23 +12,22 @@ export default class CustomInputNumber extends CustomElement {
         let min = this.el.getAttribute('min')
         let max = this.el.getAttribute('max')
 
-        if(min === '') min = undefined
-        if(max === '') max = undefined
-        if(step === '') step = undefined
+        if(min === null) min = 0
+        if(max === null) max = null
+        if(step === null) step = 1
 
-        if(step === undefined) step = 1
-        else step = parseFloat(step)
+        if(step) step = parseFloat(step)
 
         this.up.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) + step
-            if(max !== undefined && this.el.value > max) this.el.value = max
+            if( max !== null && this.el.value > max) this.el.value = max
             this.triggerEvent('input')
             this.triggerEvent('change')
             this.triggerEvent('keyup')
         })
         this.down.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) - step
-            if(min !== undefined && this.el.value < min) this.el.value = min
+            if( min !== null && this.el.value < min) this.el.value = min
             this.triggerEvent('input')
             this.triggerEvent('change')
             this.triggerEvent('keydown')
@@ -48,7 +47,6 @@ export default class CustomInputNumber extends CustomElement {
     build(){
 
         this.setStyles({
-            display: 'inline-block',
             position: 'relative',
             overflow: 'hidden',
             cursor: 'text'
@@ -57,8 +55,8 @@ export default class CustomInputNumber extends CustomElement {
             border: 'none',
             outline: 'none',
             margin: 0,
-            marginRight: '-20px',
-            width: 'calc(100% + 20px)'
+            marginRight: '-100vw',
+            width: 'calc(100% + 100vw)'
         })
 
         this.controls = document.createElement('div')
