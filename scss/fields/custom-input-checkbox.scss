@@ -20,6 +20,7 @@
 
     &:before {
         content: "";
+        @include transition;
         @include absolute-fill;
         @include flex-center;
         pointer-events: none;

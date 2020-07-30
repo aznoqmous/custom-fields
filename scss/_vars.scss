@@ -20,6 +20,10 @@ $symbol_down: '⯆';
 $symbol_checked: '✓';
 $symbol_checked_bold: '✔';
 
+@mixin transition{
+    transition: all 0.2s ease-out;
+}
+
 @mixin colors {
     background: $background;
     color: $color;
