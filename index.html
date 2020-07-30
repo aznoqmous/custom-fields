@@ -3,27 +3,35 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <script src="/dist/main.js"></script>
+        <style media="screen">
+            .block {
+                margin-bottom: 2rem;
+            }
+        </style>
     </head>
-    <body>
-        <label for="ish">
-            ish
-        </label>
-        <select name="ish">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
-        <label for="ishish">ishish</label>
-        <select name="ishish">
-            <option value="0">lor em</option>
-            <option value="1">em isp</option>
-            <option value="2">isp mu</option>
-        </select>
+    <body class="container">
+        <div class="block">
+            <h2>Select</h2>
+            <label for="ishish">ishish</label>
+            <select name="ishish">
+                <option value="0">lor em</option>
+                <option value="1">em isp</option>
+                <option value="2">isp mu</option>
+            </select>
+        </div>
 
-        <input type="number" name="ish" value="0">
+
+        <div class="block">
+            <h2>Input Number</h2>
+            <input type="number" name="ish" value="0">
+        </div>
+
+        <div class="block">
+            <h2>Input Checkbox</h2>
+            <input type="checkbox" name="ish" value="1">
+        </div>
 
     </body>
 </html>

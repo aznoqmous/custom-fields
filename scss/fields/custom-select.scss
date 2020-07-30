@@ -1,0 +1,55 @@
+.custom-select {
+
+    position: relative;
+    cursor: pointer;
+
+    @include element;
+
+    > span.selected {
+        display: inline-block;
+        @include colors;
+    }
+
+    &:after {
+        content: $symbol_down;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: $padding;
+    }
+
+    > .options {
+        left: 0;
+        top: calc(100% + #{$border_size});
+        width: 100%;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        z-index: 10;
+        @include colors;
+
+        @include box-shadow;
+
+        display: none;
+        &.active {
+            display: block;
+        }
+
+        > li {
+            cursor: pointer;
+            list-style: none;
+            padding: $padding;
+            @include colors;
+            &.selected {
+                @include activeColors;
+            }
+            &:hover {
+                @include hoverColors;
+            }
+        }
+    }
+
+    > select {
+        display: none !important;
+    }
+}

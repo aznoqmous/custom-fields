@@ -17,6 +17,9 @@ $box-shadow: 0 2px 2px rgba(black, 0.2);
 $symbol_up: '⯅';
 $symbol_down: '⯆';
 
+$symbol_checked: '✓';
+$symbol_checked_bold: '✔';
+
 @mixin colors {
     background: $background;
     color: $color;
@@ -29,6 +32,7 @@ $symbol_down: '⯆';
     background: $hover_background;
     color: $hover_color;
 }
+
 @mixin border {
     border: $border;
     border-radius: $border_radius;
@@ -45,4 +49,18 @@ $symbol_down: '⯆';
     padding: $padding;
     border: $border;
     border-radius: $border_radius;
+}
+
+@mixin absolute-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

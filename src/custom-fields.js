@@ -1,5 +1,6 @@
 import CustomSelect from './custom-select'
 import CustomInputNumber from './custom-input-number'
+import CustomInputCheckbox from './custom-input-checkbox'
 
 export default class CustomFields {
     constructor(selector){
@@ -27,6 +28,7 @@ export default class CustomFields {
             if(el.parentElement.classList.contains(this.className)) return false;
 
             if(el.tagName == 'INPUT' && el.type == 'number') new CustomInputNumber(el)
+            if(el.tagName == 'INPUT' && el.type == 'checkbox') new CustomInputCheckbox(el)
             if(el.tagName == 'SELECT') new CustomSelect(el)
 
         })

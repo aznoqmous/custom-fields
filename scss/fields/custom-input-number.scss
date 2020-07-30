@@ -1,0 +1,50 @@
+.custom-input-number {
+    position: relative;
+    overflow: hidden;
+    cursor: text;
+
+    @include element;
+
+    > input[type="number"] {
+        border: none;
+        outline: none;
+        margin: 0;
+        margin-right: -100vw;
+        width: calc(100% + 100vw);
+    }
+
+    > .controls {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        > .up, > .down {
+            height: 50%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-style: normal;
+            cursor: pointer;
+
+            @include colors;
+            &:hover {
+                @include hoverColors;
+            }
+        }
+
+        > .up:before {
+            content: $symbol_up;
+        }
+
+        > .down:before {
+            content: $symbol_down;
+        }
+
+    }
+
+
+}

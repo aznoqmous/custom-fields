@@ -8,7 +8,6 @@ export default class CustomInputNumber extends CustomElement {
     }
 
     build(){
-
         this.controls = document.createElement('div')
         this.controls.className = 'controls'
 
