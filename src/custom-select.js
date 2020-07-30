@@ -63,20 +63,25 @@ export default class CustomSelect extends CustomElement {
             if(e.key == 'ArrowDown') this.onArrowDown()
             if(e.key == 'ArrowUp') this.onArrowUp()
             if(e.key == 'Enter') this.close()
+            e.preventDefault()
         }
+        let keydown = (e)=>{ e.preventDefault() }
+
         let focusOut = (e)=>{
             if(!this.container.contains(e.target)) {
                 this.close()
                 window.removeEventListener('click', focusOut)
                 window.removeEventListener('keyup', keyup)
+                window.removeEventListener('keydown', keydown)
             }
         }
 
         this.container.addEventListener('click', (e)=>{
             if(this.optionsList.contains(e.target)) return false;
             this.open()
-            window.addEventListener('keyup', keyup)
             window.addEventListener('click', focusOut)
+            window.addEventListener('keyup', keyup)
+            window.addEventListener('keydown', keydown)
         })
 
 
