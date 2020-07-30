@@ -6,6 +6,7 @@ export default class CustomSelect extends CustomElement {
         this.build()
         this.bind()
     }
+
     build(){
 
         this.setElStyles({
@@ -46,12 +47,6 @@ export default class CustomSelect extends CustomElement {
     }
 
     bind(){
-        let focusOut = (e)=>{
-            if(!this.container.contains(e.target)) {
-                this.close()
-                window.removeEventListener('click', focusOut)
-            }
-        }
 
         let options = [...this.optionsList.children]
         options.map(opt => {
@@ -61,18 +56,46 @@ export default class CustomSelect extends CustomElement {
             })
         })
 
+        /**
+         * Temporary events
+         */
+        let keyup = (e)=>{
+            if(e.key == 'ArrowDown') this.onArrowDown()
+            if(e.key == 'ArrowUp') this.onArrowUp()
+            if(e.key == 'Enter') this.close()
+        }
+        let focusOut = (e)=>{
+            if(!this.container.contains(e.target)) {
+                this.close()
+                window.removeEventListener('click', focusOut)
+                window.removeEventListener('keyup', keyup)
+            }
+        }
+
         this.container.addEventListener('click', (e)=>{
             if(this.optionsList.contains(e.target)) return false;
             this.open()
+            window.addEventListener('keyup', keyup)
             window.addEventListener('click', focusOut)
         })
+
+
     }
 
     open(){
         this.optionsList.classList.add('active')
     }
+
     close(){
         this.optionsList.classList.remove('active')
+    }
+
+    onArrowUp(){
+        if(this.el.selectedIndex - 1 >= 0) this.setSelected(this.optionsList.children[this.el.selectedIndex - 1])
+    }
+
+    onArrowDown(){
+        if(this.el.selectedIndex + 1 < this.optionsList.children.length) this.setSelected(this.optionsList.children[this.el.selectedIndex + 1])
     }
 
 }
