@@ -1,0 +1,37 @@
+.custom-input-radio {
+    @include element;
+
+    padding: 0;
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    > input[type="radio"] {
+        opacity: 0;
+        cursor: pointer;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    &:before {
+        content: "";
+        @include transition;
+        @include absolute-fill;
+        @include flex-center;
+        pointer-events: none;
+    }
+
+    &.active:before {
+        content: $symbol_checked;
+        @include activeColors;
+    }
+
+    &:hover:before {
+        @include hoverColors;
+    }
+}

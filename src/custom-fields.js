@@ -1,6 +1,7 @@
 import CustomSelect from './custom-select'
 import CustomInputNumber from './custom-input-number'
 import CustomInputCheckbox from './custom-input-checkbox'
+import CustomInputRadio from './custom-input-radio'
 
 export default class CustomFields {
     constructor(selector){
@@ -29,6 +30,7 @@ export default class CustomFields {
 
             if(el.tagName == 'INPUT' && el.type == 'number') new CustomInputNumber(el)
             if(el.tagName == 'INPUT' && el.type == 'checkbox') new CustomInputCheckbox(el)
+            if(el.tagName == 'INPUT' && el.type == 'radio') new CustomInputRadio(el)
             if(el.tagName == 'SELECT') new CustomSelect(el)
 
         })

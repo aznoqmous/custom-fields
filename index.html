@@ -9,13 +9,16 @@
             .block {
                 margin-bottom: 2rem;
             }
+
+            label, input {
+                display: block;
+            }
         </style>
     </head>
     <body class="container">
         <div class="block">
-            <h2>Select</h2>
-            <label for="ishish">ishish</label>
-            <select name="ishish">
+            <label for="select">select</label>
+            <select name="select">
                 <option value="0">lor em</option>
                 <option value="1">em isp</option>
                 <option value="2">isp mu</option>
@@ -24,13 +27,20 @@
 
 
         <div class="block">
-            <h2>Input Number</h2>
-            <input type="number" name="ish" value="0">
+            <label for="number">input[type="number"]</label>
+            <input type="number" name="number" value="0">
         </div>
 
         <div class="block">
-            <h2>Input Checkbox</h2>
-            <input type="checkbox" name="ish" value="1">
+            <label for="checkbox">input[type="checkbox"]</label>
+            <input type="checkbox" name="checkbox" value="1">
+        </div>
+
+        <div class="block">
+            <label for="radio">input[type="radio"]</label>
+            <input type="radio" name="radio" value="Oui" placeholder="Oui">
+            <input type="radio" name="radio" value="Non">
+            <input type="radio" name="radio" value="Sans opinion">
         </div>
 
     </body>
