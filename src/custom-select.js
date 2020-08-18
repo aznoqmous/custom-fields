@@ -65,6 +65,7 @@ export default class CustomSelect extends CustomElement {
         this.focusout = (e)=>{
             if(e.target && !this.container.contains(e.target)) {
                 this.close()
+                this.removeFocus()
             }
         }
         this.keydown = (e)=>{
