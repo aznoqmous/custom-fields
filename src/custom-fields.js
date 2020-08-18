@@ -1,5 +1,6 @@
 import CustomSelect from './custom-select'
 import CustomInputText from './custom-input-text'
+import CustomTextarea from './custom-textarea'
 import CustomInputNumber from './custom-input-number'
 import CustomInputCheckbox from './custom-input-checkbox'
 import CustomInputRadio from './custom-input-radio'
@@ -33,7 +34,7 @@ export default class CustomFields {
             let customEl = null
 
             if(el.tagName == 'INPUT' && el.type == 'text') customEl = new CustomInputText(el)
-            if(el.tagName == 'TEXTAREA') customEl = new CustomInputText(el)
+            if(el.tagName == 'TEXTAREA') customEl = new CustomTextarea(el)
             if(el.tagName == 'INPUT' && el.type == 'number') customEl = new CustomInputNumber(el)
             if(el.tagName == 'INPUT' && el.type == 'checkbox') customEl = new CustomInputCheckbox(el)
             if(el.tagName == 'INPUT' && el.type == 'radio') customEl = new CustomInputRadio(el)
