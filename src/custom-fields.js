@@ -33,6 +33,7 @@ export default class CustomFields {
             let customEl = null
 
             if(el.tagName == 'INPUT' && el.type == 'text') customEl = new CustomInputText(el)
+            if(el.tagName == 'TEXTAREA') customEl = new CustomInputText(el)
             if(el.tagName == 'INPUT' && el.type == 'number') customEl = new CustomInputNumber(el)
             if(el.tagName == 'INPUT' && el.type == 'checkbox') customEl = new CustomInputCheckbox(el)
             if(el.tagName == 'INPUT' && el.type == 'radio') customEl = new CustomInputRadio(el)
