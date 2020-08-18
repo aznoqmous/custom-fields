@@ -65,13 +65,11 @@ export default class CustomSelect extends CustomElement {
         this.focusout = (e)=>{
             if(e.target && !this.container.contains(e.target)) {
                 this.close()
-                this.removeFocus()
             }
         }
         this.keydown = (e)=>{
             if(e.key == 'Tab') {
                  this.close()
-                 this.removeFocus()
             }
             else e.preventDefault()
         }
@@ -113,6 +111,7 @@ export default class CustomSelect extends CustomElement {
     close(){
         this.opened = false
         this.optionsList.classList.remove('active')
+        this.removeFocus()
         window.removeEventListener('click', this.focusout)
         window.removeEventListener('keyup', this.keyup)
         window.removeEventListener('keydown', this.keydown)
