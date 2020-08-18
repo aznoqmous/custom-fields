@@ -1,8 +1,4 @@
 .custom-input-radio {
-    @include element;
-
-    padding: 0;
-    position: relative;
     display: inline-block;
     line-height: 0;
     overflow: hidden;
@@ -10,6 +6,9 @@
     cursor: pointer;
 
     border-radius: 50%;
+
+    width: 1rem;
+    height: 1rem;
 
     > input[type="radio"] {
         opacity: 0;

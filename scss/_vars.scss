@@ -48,14 +48,26 @@ $symbol_checked_bold: '✔';
 }
 
 @mixin element {
+    position: relative;
     background: $background;
     color: $color;
-    padding: $padding;
     border: $border;
     border-radius: $border_radius;
-    
+
+    padding: 0;
+
     &.focus {
         box-shadow: 0 0 5px $active_background;
+    }
+
+    > input,
+    > textarea,
+    > select
+    {
+        width: 100%;
+        padding: $padding;
+        border: none;
+        outline: none;
     }
 }
 

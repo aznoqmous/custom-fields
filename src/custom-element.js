@@ -1,6 +1,6 @@
 export default class CustomElement {
-    constructor(el, className='custom-element'){
-        this.className = className
+    constructor(el, className=''){
+        this.className = className + ' custom-element'
 
         this.wrap(el)
         this.bindEvents()

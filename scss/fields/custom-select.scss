@@ -1,13 +1,9 @@
 .custom-select {
-
-    position: relative;
     cursor: pointer;
 
-    @include element;
-
     > span.selected {
-        display: inline-block;
-        @include colors;
+        display: block;
+        padding: $padding;
     }
 
     &:after {
