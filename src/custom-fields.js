@@ -5,9 +5,10 @@ import CustomInputCheckbox from './custom-input-checkbox'
 import CustomInputRadio from './custom-input-radio'
 
 export default class CustomFields {
-    constructor(selector){
+    constructor(selector, config){
         this.selector = selector
         this.className = 'custom-element'
+        this.config = config
         this.build()
         this.bindObserver()
     }
@@ -29,11 +30,17 @@ export default class CustomFields {
             // already bound
             if(el.parentElement.classList.contains(this.className)) return false;
 
-            if(el.tagName == 'INPUT' && el.type == 'text') new CustomInputText(el)
-            if(el.tagName == 'INPUT' && el.type == 'number') new CustomInputNumber(el)
-            if(el.tagName == 'INPUT' && el.type == 'checkbox') new CustomInputCheckbox(el)
-            if(el.tagName == 'INPUT' && el.type == 'radio') new CustomInputRadio(el)
-            if(el.tagName == 'SELECT') new CustomSelect(el)
+            let customEl = null
+
+            if(el.tagName == 'INPUT' && el.type == 'text') customEl = new CustomInputText(el)
+            if(el.tagName == 'INPUT' && el.type == 'number') customEl = new CustomInputNumber(el)
+            if(el.tagName == 'INPUT' && el.type == 'checkbox') customEl = new CustomInputCheckbox(el)
+            if(el.tagName == 'INPUT' && el.type == 'radio') customEl = new CustomInputRadio(el)
+            if(el.tagName == 'SELECT') customEl = new CustomSelect(el)
+
+            if(!customEl) return false;
+
+            for(let key in this.config) customEl[key] = this.config[key]
         })
     }
 
