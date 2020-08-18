@@ -4,6 +4,9 @@ export default class CustomInputRadio extends CustomElement {
 
     constructor(el){
         super(el, 'custom-input-radio')
+
+        this.hasLabel()
+
         this.bind()
     }
 

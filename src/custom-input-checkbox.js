@@ -3,6 +3,9 @@ export default class CustomInputNumber extends CustomElement {
 
     constructor(el){
         super(el, 'custom-input-checkbox')
+        
+        this.hasLabel()
+
         this.bind()
     }
 

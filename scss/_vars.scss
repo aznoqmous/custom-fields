@@ -53,6 +53,10 @@ $symbol_checked_bold: '✔';
     padding: $padding;
     border: $border;
     border-radius: $border_radius;
+    
+    &.focus {
+        box-shadow: 0 0 5px $active_background;
+    }
 }
 
 @mixin absolute-fill {

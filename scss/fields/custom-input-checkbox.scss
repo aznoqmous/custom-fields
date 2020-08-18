@@ -9,14 +9,12 @@
 
     cursor: pointer;
 
-
     > input[type="checkbox"] {
         opacity: 0;
         cursor: pointer;
         min-width: 100%;
         min-height: 100%;
     }
-
 
     &:before {
         content: "";
@@ -25,11 +23,14 @@
         @include flex-center;
         pointer-events: none;
     }
+
     &.active:before {
         content: $symbol_checked;
         @include activeColors;
     }
-    &:hover:before {
+
+    &.hover:before {
         @include hoverColors;
     }
+
 }

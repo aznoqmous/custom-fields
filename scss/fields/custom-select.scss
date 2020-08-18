@@ -50,6 +50,8 @@
     }
 
     > select {
-        display: none !important;
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
     }
 }

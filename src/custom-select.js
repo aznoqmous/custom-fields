@@ -3,15 +3,13 @@ export default class CustomSelect extends CustomElement {
     constructor(el){
         super(el, 'custom-select')
 
+        this.shiftState = false
+
         this.build()
         this.bind()
     }
 
     build(){
-
-        this.setElStyles({
-            display: 'none'
-        })
 
         this.selected = document.createElement('span')
         this.selected.className = 'selected'
@@ -53,6 +51,9 @@ export default class CustomSelect extends CustomElement {
             opt.addEventListener('click', ()=>{
                 this.setSelected(opt)
                 this.close()
+                window.removeEventListener('click', focusOut)
+                window.removeEventListener('keyup', keyup)
+                window.removeEventListener('keydown', keydown)
             })
         })
 
@@ -60,12 +61,21 @@ export default class CustomSelect extends CustomElement {
          * Temporary events
          */
         let keyup = (e)=>{
+
             if(e.key == 'ArrowDown') this.onArrowDown()
             if(e.key == 'ArrowUp') this.onArrowUp()
-            if(e.key == 'Enter') this.close()
+            if(e.key == 'Enter') {
+                this.close()
+                window.removeEventListener('click', focusOut)
+                window.removeEventListener('keyup', keyup)
+                window.removeEventListener('keydown', keydown)
+            }
             e.preventDefault()
         }
-        let keydown = (e)=>{ e.preventDefault() }
+
+        let keydown = (e)=>{
+            e.preventDefault()
+        }
 
         let focusOut = (e)=>{
             if(!this.container.contains(e.target)) {
@@ -76,6 +86,21 @@ export default class CustomSelect extends CustomElement {
             }
         }
 
+        this.el.addEventListener('focusin', (e)=>{
+            this.open()
+            window.addEventListener('click', focusOut)
+            window.addEventListener('keyup', keyup)
+            window.addEventListener('keydown', keydown)
+        })
+
+        // this.el.addEventListener('up', (e)=>{
+        //     if(e.key == 'Tab' && document.activeElement == this.el) {
+        //         this.close()
+        //         if(e.key == 'Tab' && this.shiftState) this.getPreviousFormField().focus()
+        //         else if(e.key == 'Tab') this.getNextFormField().focus()
+        //     }
+        // })
+
         this.container.addEventListener('click', (e)=>{
             if(this.optionsList.contains(e.target)) return false;
             this.open()
@@ -84,7 +109,8 @@ export default class CustomSelect extends CustomElement {
             window.addEventListener('keydown', keydown)
         })
 
-
+        document.addEventListener('keyup', (e)=>{ if(e.key == 'Shift') this.shiftState = false })
+        document.addEventListener('keydown', (e)=>{ if(e.key == 'Shift') this.shiftState = true })
     }
 
     open(){

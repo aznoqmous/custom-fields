@@ -31,7 +31,7 @@
         @include activeColors;
     }
 
-    &:hover:before {
+    &.hover:before {
         @include hoverColors;
     }
 }
