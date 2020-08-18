@@ -68,7 +68,10 @@ export default class CustomSelect extends CustomElement {
             }
         }
         this.keydown = (e)=>{
-            if(e.key == 'Tab') this.close()
+            if(e.key == 'Tab') {
+                 this.close()
+                 this.removeFocus()
+            }
             else e.preventDefault()
         }
 
