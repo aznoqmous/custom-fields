@@ -21,7 +21,7 @@ export default class CustomSelect extends CustomElement {
         opts.map(opt => {
             let option = document.createElement('li')
             option.innerHTML = opt.innerHTML
-            option.setAttribute('data-value', opt.value)
+            option.setAttribute('data-value', opt.getAttribute('value'))
             this.optionsList.appendChild(option)
             if(opt.selected) this.setSelected(option)
         })
@@ -34,7 +34,7 @@ export default class CustomSelect extends CustomElement {
         this.clearSelected()
         this.selected.innerHTML = option.innerHTML
         option.classList.add('selected')
-        this.el.value = option.getAttribute('data-value')
+        this.el.value = option.getAttribute('data-value') ? option.getAttribute('data-value') : null;
         this.triggerChange()
     }
 
