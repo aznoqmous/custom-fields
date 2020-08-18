@@ -93,14 +93,6 @@ export default class CustomSelect extends CustomElement {
             window.addEventListener('keydown', keydown)
         })
 
-        // this.el.addEventListener('up', (e)=>{
-        //     if(e.key == 'Tab' && document.activeElement == this.el) {
-        //         this.close()
-        //         if(e.key == 'Tab' && this.shiftState) this.getPreviousFormField().focus()
-        //         else if(e.key == 'Tab') this.getNextFormField().focus()
-        //     }
-        // })
-
         this.container.addEventListener('click', (e)=>{
             if(this.optionsList.contains(e.target)) return false;
             this.open()
