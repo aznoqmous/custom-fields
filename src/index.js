@@ -4,7 +4,7 @@ import Styles from '../scss/style.scss'
 
 export default CustomFields
 
+window.CustomFields = CustomFields
 // document.addEventListener('DOMContentLoaded', ()=>{
-//     new CustomFields('select')
-//     new CustomFields('input')
+//     new CustomFields()
 // })

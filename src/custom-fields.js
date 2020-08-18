@@ -6,7 +6,7 @@ import CustomInputCheckbox from './custom-input-checkbox'
 import CustomInputRadio from './custom-input-radio'
 
 export default class CustomFields {
-    constructor(selector, config){
+    constructor(selector='input,select,textarea', config={}){
         this.selector = selector
         this.className = 'custom-element'
         this.config = config
