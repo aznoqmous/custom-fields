@@ -94,12 +94,12 @@ export default class CustomElement {
 
     applyFocus(){
         this.container.classList.add('focus')
-        if(this.focusin) this.focusin(this)
+        if(this.onfocusin) this.onfocusin(this)
     }
 
     removeFocus(){
         this.container.classList.remove('focus')
-        if(this.focusout) this.focusout(this)
+        if(this.onfocusout) this.onfocusout(this)
     }
 
 }
