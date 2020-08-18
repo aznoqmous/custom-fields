@@ -22,11 +22,11 @@ export default class CustomElement {
     bindEvents(){
         this.el.addEventListener('focusin', (e)=>{
             this.container.classList.add('focus')
-            if(this.focusin) this.focusin()
+            if(this.focusin) this.focusin(this)
         })
         this.el.addEventListener('focusout', (e)=>{
             this.container.classList.remove('focus')
-            if(this.focusout) this.focusout()
+            if(this.focusout) this.focusout(this)
         })
     }
 
