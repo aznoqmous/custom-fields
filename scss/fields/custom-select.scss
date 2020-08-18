@@ -31,11 +31,15 @@
             display: block;
         }
 
+
         > li {
             cursor: pointer;
             list-style: none;
             padding: $padding;
             @include colors;
+            &.muted {
+                color: $muted_color;
+            }
             &.selected {
                 @include activeColors;
             }
