@@ -1,3 +1,7 @@
 .custom-element {
     @include element;
+
+    .muted {
+        color: $muted_color;
+    }
 }

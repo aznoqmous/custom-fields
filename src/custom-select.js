@@ -18,21 +18,25 @@ export default class CustomSelect extends CustomElement {
         this.optionsList = document.createElement('ul')
 
         let opts = [...this.el.options]
-        opts.map(opt => {
+        opts.map((opt, i) => {
             let option = document.createElement('li')
             option.innerHTML = opt.innerHTML
             option.setAttribute('data-value', opt.getAttribute('value'))
+            if(!opt.getAttribute('value')) opt.classList.add('muted')
             this.optionsList.appendChild(option)
-            if(opt.selected) this.setSelected(option)
+            if(opt.selected) this.setSelected(i)
         })
         this.optionsList.className = 'options'
         this.container.appendChild(this.optionsList)
 
     }
 
-    setSelected(option){
+    setSelected(index){
+        let option = this.optionsList.children[index]
+        option.className = [...this.el.options][index].className
         this.clearSelected()
         this.selected.innerHTML = option.innerHTML
+        this.selected.className = `selected ${option.className}`
         option.classList.add('selected')
         this.el.value = option.getAttribute('data-value') ? option.getAttribute('data-value') : null;
         this.triggerChange()
@@ -69,9 +73,9 @@ export default class CustomSelect extends CustomElement {
         }
 
         let options = [...this.optionsList.children]
-        options.map(opt => {
+        options.map((opt,i) => {
             opt.addEventListener('click', ()=>{
-                this.setSelected(opt)
+                this.setSelected(i)
                 this.close()
             })
         })
@@ -110,13 +114,13 @@ export default class CustomSelect extends CustomElement {
     }
 
     onArrowUp(){
-        if(this.el.selectedIndex - 1 >= 0) this.setSelected(this.optionsList.children[this.el.selectedIndex - 1])
+        if(this.el.selectedIndex - 1 >= 0) this.setSelected(this.el.selectedIndex - 1)
         else this.close()
     }
 
     onArrowDown(){
-        if(this.el.selectedIndex < 0) this.setSelected(this.optionsList.children[1])
-        else if(this.el.selectedIndex + 1 < this.optionsList.children.length) this.setSelected(this.optionsList.children[this.el.selectedIndex + 1])
+        if(this.el.selectedIndex < 0) this.setSelected(1)
+        else if(this.el.selectedIndex + 1 < this.optionsList.children.length) this.setSelected(this.el.selectedIndex + 1)
     }
 
 }
