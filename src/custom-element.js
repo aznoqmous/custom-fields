@@ -21,12 +21,10 @@ export default class CustomElement {
     }
     bindEvents(){
         this.el.addEventListener('focusin', (e)=>{
-            this.container.classList.add('focus')
-            if(this.focusin) this.focusin(this)
+            this.applyFocus()
         })
         this.el.addEventListener('focusout', (e)=>{
-            this.container.classList.remove('focus')
-            if(this.focusout) this.focusout(this)
+            this.removeFocus()
         })
     }
 
@@ -92,6 +90,16 @@ export default class CustomElement {
         let nextIndex = formFields.indexOf(this.el) + 1
         if(nextIndex > formFields.length - 1) nextIndex = 0
         return formFields[nextIndex]
+    }
+
+    applyFocus(){
+        this.container.classList.add('focus')
+        if(this.focusin) this.focusin(this)
+    }
+
+    removeFocus(){
+        this.container.classList.remove('focus')
+        if(this.focusout) this.focusout(this)
     }
 
 }

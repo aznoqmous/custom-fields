@@ -100,7 +100,7 @@ export default class CustomSelect extends CustomElement {
     open(){
         this.opened = Date.now()
         this.optionsList.classList.add('active')
-        this.container.classList.add('focus')
+        this.applyFocus()
         window.addEventListener('click', this.focusout)
         window.addEventListener('keyup', this.keyup)
         window.addEventListener('keydown', this.keydown)
