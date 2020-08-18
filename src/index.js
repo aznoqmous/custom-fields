@@ -4,7 +4,7 @@ import Styles from '../scss/style.scss'
 
 export default CustomFields
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    new CustomFields('select')
-    new CustomFields('input')
-})
+// document.addEventListener('DOMContentLoaded', ()=>{
+//     new CustomFields('select')
+//     new CustomFields('input')
+// })
