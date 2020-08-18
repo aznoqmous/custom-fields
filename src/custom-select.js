@@ -58,9 +58,8 @@ export default class CustomSelect extends CustomElement {
             }
             e.preventDefault()
         }
-
         this.focusout = (e)=>{
-            if(!this.container.contains(e.target)) {
+            if(e.target && !this.container.contains(e.target)) {
                 this.close()
             }
         }
@@ -97,7 +96,7 @@ export default class CustomSelect extends CustomElement {
     open(){
         this.opened = Date.now()
         this.optionsList.classList.add('active')
-        window.addEventListener('click', this.focusOut)
+        window.addEventListener('click', this.focusout)
         window.addEventListener('keyup', this.keyup)
         window.addEventListener('keydown', this.keydown)
     }
@@ -105,7 +104,7 @@ export default class CustomSelect extends CustomElement {
     close(){
         this.opened = false
         this.optionsList.classList.remove('active')
-        window.removeEventListener('click', this.focusOut)
+        window.removeEventListener('click', this.focusout)
         window.removeEventListener('keyup', this.keyup)
         window.removeEventListener('keydown', this.keydown)
     }

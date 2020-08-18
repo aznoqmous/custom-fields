@@ -22,50 +22,56 @@
     </script>
     <body class="container">
 
-        <div class="block">
-            <label for="text">input[type="text"]</label>
-            <input type="text" name="text" value="text-value">
-        </div>
+        <form class="" action="index.html" method="post">
 
-        <div class="block">
-            <label for="text">textarea</label>
-            <textarea name="name" rows="8" cols="80"></textarea>
-        </div>
+            <div class="block">
+                <label for="text">input[type="text"]</label>
+                <input type="text" required name="text" placeholder="text-value">
+            </div>
 
-        <div class="block">
-            <label for="number">input[type="number"]</label>
-            <input type="number" name="number" value="0">
-        </div>
+            <div class="block">
+                <label for="text">textarea</label>
+                <textarea required name="name" rows="8" cols="80"></textarea>
+            </div>
 
-        <div class="block">
-            <label for="select">select</label>
-            <select name="select">
-                <option>-</option>
-                <option value="0">lor em</option>
-                <option value="1">em isp</option>
-                <option value="2">isp mu</option>
-            </select>
-        </div>
+            <div class="block">
+                <label for="number">input[type="number"]</label>
+                <input type="number" required name="number" value="0">
+            </div>
 
-        <div class="block">
-            <label for="checkbox">input[type="checkbox"]</label>
-            <input type="checkbox" name="checkbox" value="1" id="check_1"><label for="check_1">1</label>
-            <input type="checkbox" name="checkbox" value="2" id="check_2"><label for="check_2">2</label>
-            <input type="checkbox" name="checkbox" value="3" id="check_3"><label for="check_3">3</label>
-        </div>
+            <div class="block">
+                <label for="select">select</label>
+                <select required name="select">
+                    <option>-</option>
+                    <option value="0">lor em</option>
+                    <option value="1">em isp</option>
+                    <option value="2">isp mu</option>
+                </select>
+            </div>
 
-        <div class="block">
-            <label for="radio">input[type="radio"]</label>
+            <div class="block">
+                <label for="checkbox">input[type="checkbox"]</label>
+                <input type="checkbox" required name="checkbox" value="1" id="check_1"><label for="check_1">1</label>
+                <input type="checkbox" required name="checkbox" value="2" id="check_2"><label for="check_2">2</label>
+                <input type="checkbox" required name="checkbox" value="3" id="check_3"><label for="check_3">3</label>
+            </div>
 
-            <input type="radio" name="radio" value="Oui" placeholder="Oui" id="oui">
-            <label for="oui">Oui</label>
+            <div class="block">
+                <label for="radio">input[type="radio"]</label>
 
-            <input type="radio" name="radio" value="Non" id="non">
-            <label for="non">Non</label>
+                <input type="radio" required name="radio" value="Oui" placeholder="Oui" id="oui">
+                <label for="oui">Oui</label>
+
+                <input type="radio" required name="radio" value="Non" id="non">
+                <label for="non">Non</label>
 
 
-            <input type="radio" name="radio" value="Sans opinion" id="sans-opinion">
-            <label for="sans-opinion">Sans opinion</label>
-        </div>
+                <input type="radio" required name="radio" value="Sans opinion" id="sans-opinion">
+                <label for="sans-opinion">Sans opinion</label>
+            </div>
+            <div class="block">
+                <input type="submit" name="" value="Envoyer">
+            </div>
+        </form>
     </body>
 </html>
