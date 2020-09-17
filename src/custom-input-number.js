@@ -16,8 +16,13 @@ export default class CustomInputNumber extends CustomElement {
         this.up.className = 'up'
         this.down.className = 'down'
 
+        this.number = document.createElement('span')
+        this.number.innerHTML = this.el.value
+        this.el.style.display = 'none'
+
         this.controls.appendChild(this.up)
         this.controls.appendChild(this.down)
+        this.container.appendChild(this.number)
         this.container.appendChild(this.controls)
     }
 
@@ -45,6 +50,10 @@ export default class CustomInputNumber extends CustomElement {
             this.el.value = parseFloat(this.el.value) - step
             if( min !== null && this.el.value < min) this.el.value = min
             this.triggerChange()
+        })
+
+        this.el.addEventListener('change', ()=>{
+            this.number.innerHTML = this.el.value
         })
     }
 
