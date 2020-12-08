@@ -43,12 +43,12 @@ export default class CustomInputNumber extends CustomElement {
 
         this.up.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) + step
-            if( max !== null && this.el.value > max) this.el.value = max
+            if( max !== null && parseFloat(this.el.value) > parseFloat(max)) this.el.value = max
             this.triggerChange()
         })
         this.down.addEventListener('click', ()=>{
             this.el.value = parseFloat(this.el.value) - step
-            if( min !== null && this.el.value < min) this.el.value = min
+            if( min !== null && parseFloat(this.el.value) < parseFloat(min)) this.el.value = min
             this.triggerChange()
         })
 
